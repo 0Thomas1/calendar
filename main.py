@@ -10,7 +10,7 @@ TBC
 """
 
 
-in_number = int(input("what is your number?"))
+
 
 def check_input(num):
     """
@@ -46,7 +46,7 @@ def find_prime(lower, higher):
     prime_list = []
     i = 0
     print(num_list)
-    while i <= len(num_list) - 1:
+    while i < len(num_list):
         if check_prime(num_list[i]) is True:
             prime_list.append(num_list[i])
         i += 1
@@ -59,6 +59,8 @@ def print_list(list):
     print things
     """    
     print(list)
-
+in_number = int(input("what is your number?"))
+check_input(in_number)
 #check_prime(in_number)
-find_prime(0,20)
+lower, higher = int(input("What is your range of numbers?")).split()
+find_prime(lower, higher)
