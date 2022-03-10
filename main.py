@@ -26,6 +26,8 @@ def check_prime(num):
     #num_list = [0] * (num + 1)
     i = 2 
     remain = 1
+    if num == 2:
+        return False
     while i < num and remain != 0:
         remain = num % i
         i += 1
@@ -45,13 +47,18 @@ def find_prime(lower, higher):
     i = 0
     print(num_list)
     while i <= len(num_list) - 1:
-        check_prime(num_list[i])
-        if check_prime is True:
-            prime_list.append(num_list[i])
-            print(prime_list)
-        
+        if check_prime(num_list[i]) is True:
+            prime_list. append(num_list[i])
         i += 1
-    
+        
+    print_list(prime_list)
+        
 
-check_prime(in_number)
-find_prime(2,7)
+def print_list(list):
+    """
+    print things
+    """    
+    print(list)
+
+#check_prime(in_number)
+find_prime(0,25)
