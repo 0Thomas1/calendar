@@ -2,14 +2,20 @@
 2021/03/09
 prime No.
 input any number and the script test if its a prime no.
-or 
+and
 find prime no.s in a range(biggest, smallest, middle)
+and
+TBC
+
 """
 
 
-in_number = int(input("what is your number?"))
+#in_number = int(input("what is your number?"))
 
 def check_input(num):
+    """
+    check if the input is an integer
+    """
     if num //1 != 0:
         print("This is not a prime number.")
 
@@ -23,13 +29,29 @@ def check_prime(num):
     while i < num and remain != 0:
         remain = num % i
         i += 1
-        print(remain)
+        #print(remain)
     if remain == 0:
-        print("this is not a prime number.")
+        return False
     else:
-        print(str(num) +" is a prime number.")
-    
+        return True
+
+def find_prime(lower, higher):
+    """
+    find all the prime no. in the range and organize them in a list
+    """    
+    num_list = list(range(higher + 1))
+    del num_list[0:lower]
+    prime_list = []
+    i = 0
+    print(num_list)
+    while i <= len(num_list) - 1:
+        check_prime(num_list[i])
+        if check_prime is True:
+            prime_list.append(num_list[i])
+            print(prime_list)
+        
+        i += 1
     
 
-
-check_prime(in_number)
+#check_prime(in_number)
+find_prime(2,7)
