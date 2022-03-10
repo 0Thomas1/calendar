@@ -10,7 +10,7 @@ TBC
 """
 
 
-#in_number = int(input("what is your number?"))
+in_number = int(input("what is your number?"))
 
 def check_input(num):
     """
@@ -53,5 +53,5 @@ def find_prime(lower, higher):
         i += 1
     
 
-#check_prime(in_number)
+check_prime(in_number)
 find_prime(2,7)
