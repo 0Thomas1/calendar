@@ -26,7 +26,7 @@ def check_prime(num):
     #num_list = [0] * (num + 1)
     i = 2 
     remain = 1
-    if num >= 0 and num <= 2:
+    if num <= 1:
         return False
     while i < num and remain != 0:
         remain = num % i
@@ -41,6 +41,7 @@ def find_prime(lower, higher):
     """
     find all the prime no. in the range and organize them in a list
     """    
+    
     num_list = list(range(higher + 1))
     del num_list[0:lower]
     prime_list = []
@@ -59,8 +60,16 @@ def print_list(list):
     print things
     """    
     print(list)
+def ini_programme():
+    """
+    interface to start each programme seperately
+    and loop it
+    """
+    print('Programme list: n\ 1: check prime  ')
+    in_phrase = input("Which programme do you want to chose?")
+
 in_number = int(input("what is your number?"))
-check_prime(in_number)
+print(check_prime(in_number))
 lower = int(input("What is your lower range?"))
 higher = int(input("What is your upper range?"))
 find_prime(lower, higher)
