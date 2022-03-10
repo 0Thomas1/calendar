@@ -51,8 +51,8 @@ def find_prime(lower, higher):
         if check_prime(num_list[i]) is True:
             prime_list.append(num_list[i])
         i += 1
-
-    print(prime_list)
+    return prime_list
+    
         
 
 def print_list(list):
@@ -60,16 +60,31 @@ def print_list(list):
     print things
     """    
     print(list)
+
 def ini_programme():
     """
     interface to start each programme seperately
     and loop it
     """
-    print('Programme list: n\ 1: check prime  ')
-    in_phrase = input("Which programme do you want to chose?")
+    in_number = int(input("what is your number?"))
+    if check_prime(in_number) is True:
+        print(str(in_number) + " is a prime number.")
+    else:
+        print(str(in_number) + " is not a prime number.")
 
+    lower = int(input("What is your lower range?"))
+    higher = int(input("What is your upper range?"))
+    print(find_prime(lower, higher))
+
+    """print('Programme list: n\ 1: check prime  ')
+    in_phrase = input("Which programme do you want to chose?")"""
+
+ini_programme()
+
+"""
 in_number = int(input("what is your number?"))
-print(check_prime(in_number))
+check_prime(in_number)
 lower = int(input("What is your lower range?"))
 higher = int(input("What is your upper range?"))
 find_prime(lower, higher)
+"""
