@@ -60,7 +60,7 @@ def print_list(list):
     """    
     print(list)
 in_number = int(input("what is your number?"))
-check_input(in_number)
-#check_prime(in_number)
-lower, higher = int(input("What is your range of numbers?")).split()
+check_prime(in_number)
+lower = int(input("What is your lower range?"))
+higher = int(input("What is your upper range?"))
 find_prime(lower, higher)
