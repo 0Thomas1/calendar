@@ -77,6 +77,12 @@ def ini_programme():
     """print('Programme list: n\ 1: check prime  ')
     in_phrase = input("Which programme do you want to chose?")"""
 
+def twin_primes(lst):
+    for i in range(len(lst)):
+        
+
+
+
 ini_programme()
 
 """
