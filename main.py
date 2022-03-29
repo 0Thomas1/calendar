@@ -12,6 +12,9 @@ TBC
 
 
 
+from pickle import APPEND
+
+
 def check_input(num):
     """
     check if the input is an integer
@@ -70,20 +73,26 @@ def ini_programme():
     else:
         print(str(in_number) + " is not a prime number.")
 
+def check_prime_from_range():
     lower = int(input("What is your lower range?"))
     higher = int(input("What is your upper range?"))
-    print(find_prime(lower, higher))
+    prime_lst = find_prime(lower, higher)
+    print(prime_lst)
 
-    """print('Programme list: n\ 1: check prime  ')
-    in_phrase = input("Which programme do you want to chose?")"""
 
 def twin_primes(lst):
-    for i in range(len(lst)):
+    twin_prime_lst = []
+    for i in range(len(lst)-1):
+        if lst[i+1] - lst[i] == 2:
+            twin_prime_lst.append(lst[i])
+            twin_prime_lst.append(lst[i+1])
+            
+            print(twin_prime_lst)
+    
         
 
 
-
-ini_programme()
+twin_primes(find_prime(0,10000))
 
 """
 in_number = int(input("what is your number?"))
