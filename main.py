@@ -48,7 +48,7 @@ def find_prime(lower, higher):
     for i in range(len(num_list)):
         if check_prime(num_list[i]) is True:
             prime_list.append(num_list[i])
-        i += 1
+        
     return prime_list
     
         
