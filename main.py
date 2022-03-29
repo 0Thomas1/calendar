@@ -21,9 +21,8 @@ def check_input(num):
 
 def check_prime(num):
     """
-    check if the input no. is prime or not
+    check if the input no. is prime or not,and return boolean expression
     """
-    #num_list = [0] * (num + 1)
     i = 2 
     remain = 1
     if num <= 1:
@@ -31,7 +30,6 @@ def check_prime(num):
     while i < num and remain != 0:
         remain = num % i
         i += 1
-        #print(remain)
     if remain == 0:
         return False
     else:
@@ -43,11 +41,11 @@ def find_prime(lower, higher):
     """    
     
     num_list = list(range(higher + 1))
-    del num_list[0:lower]
+    del num_list[:lower]
     prime_list = []
-    i = 0
+    
     print(num_list)
-    while i < len(num_list):
+    for i in range(len(num_list)):
         if check_prime(num_list[i]) is True:
             prime_list.append(num_list[i])
         i += 1
