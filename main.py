@@ -73,31 +73,26 @@ def ini_programme():
     else:
         print(str(in_number) + " is not a prime number.")
 
-def check_prime_from_range():
+def prime_lst_input():
     lower = int(input("What is your lower range?"))
     higher = int(input("What is your upper range?"))
     prime_lst = find_prime(lower, higher)
-    print(prime_lst)
+    return prime_lst
 
 
 def twin_primes(lst):
+    """
+    from a sorted prime list, find all twin primes
+    """
     twin_prime_lst = []
     for i in range(len(lst)-1):
         if lst[i+1] - lst[i] == 2:
             twin_prime_lst.append(lst[i])
             twin_prime_lst.append(lst[i+1])
             
-            print(twin_prime_lst)
+            print_list(twin_prime_lst)
     
         
 
 
-twin_primes(find_prime(0,10000))
-
-"""
-in_number = int(input("what is your number?"))
-check_prime(in_number)
-lower = int(input("What is your lower range?"))
-higher = int(input("What is your upper range?"))
-find_prime(lower, higher)
-"""
+twin_primes(prime_lst_input())
