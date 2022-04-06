@@ -74,6 +74,9 @@ def ini_programme():
         print(str(in_number) + " is not a prime number.")
 
 def prime_lst_input():
+    """
+    prompt user to input lower and upper range
+    """
     lower = int(input("What is your lower range?"))
     higher = int(input("What is your upper range?"))
     prime_lst = find_prime(lower, higher)
@@ -92,7 +95,24 @@ def twin_primes(lst):
             
             print_list(twin_prime_lst)
     
-        
+def prime_factor(num): 
+    """
+    find 2 prime factors of a number
+    """       
+    teli = find_prime(0,num)
+    faclst =[]
+    
+    for i in range(len(teli)-1):
+        j = i
+        while j < len(teli)-1 and len(faclst) == 0:
+            if teli[i] * teli[j+1] != num:
+                j += 1
+            else:
+                faclst.append(teli[i])
+                faclst.append(teli[j+1])
+                
+    return faclst
 
+#twin_primes(prime_lst_input())
 
-twin_primes(prime_lst_input())
+print(prime_factor())
