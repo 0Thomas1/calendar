@@ -47,7 +47,6 @@ def find_prime(lower, higher):
     del num_list[:lower]
     prime_list = []
     
-    print(num_list)
     for i in range(len(num_list)):
         if check_prime(num_list[i]) is True:
             prime_list.append(num_list[i])
@@ -67,11 +66,32 @@ def ini_programme():
     interface to start each programme seperately
     and loop it
     """
+    text = """
+    Welcome to the prime number program.
+    Program list:
+    1 | Check prime
+    2 | Find prime in a range
+    3 | Find twin primes
+    4 | Prime factor 
+    """
+    print(text)
+    to_do = int(input("Launch program: "))
+    
+        
+    try:
+        if to_do is 1:
+            check_prime()
+    except ValueError:
+        ini_programme()
     in_number = int(input("what is your number?"))
-    if check_prime(in_number) is True:
-        print(str(in_number) + " is a prime number.")
-    else:
-        print(str(in_number) + " is not a prime number.")
+    try:
+        if check_prime(in_number) is True:
+            print(str(in_number) + " is a prime number.")
+        else:
+            print(str(in_number) + " is not a prime number.")
+    except ValueError:
+        ini_programme()
+        
 
 def prime_lst_input():
     """
@@ -113,6 +133,8 @@ def prime_factor(num):
                 
     return faclst
 
-#twin_primes(prime_lst_input())
+"""
+"""
 
-print(prime_factor())
+print(prime_factor(1027))
+ini_programme()
