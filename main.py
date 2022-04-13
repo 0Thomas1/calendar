@@ -14,6 +14,8 @@ TBC
 
 from pickle import APPEND
 
+from pkg_resources import to_filename
+
 
 def check_input(num):
     """
@@ -79,8 +81,12 @@ def ini_programme():
     
         
     try:
-        if to_do is 1:
+        if to_do == 1:
             check_prime()
+        elif to_do == 2:
+           print(prime_lst_input())
+        elif to_do == 3:
+            
     except ValueError:
         ini_programme()
     in_number = int(input("what is your number?"))
