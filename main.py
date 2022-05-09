@@ -14,9 +14,6 @@ TBC
 
 from pickle import APPEND
 
-from pkg_resources import to_filename
-
-
 def check_input(num):
     """
     check if the input is an integer
@@ -63,42 +60,6 @@ def print_list(list):
     """    
     print(list)
 
-def ini_programme():
-    """
-    interface to start each programme seperately
-    and loop it
-    """
-    text = """
-    Welcome to the prime number program.
-    Program list:
-    1 | Check prime
-    2 | Find prime in a range
-    3 | Find twin primes
-    4 | Prime factor 
-    """
-    print(text)
-    to_do = int(input("Launch program: "))
-    
-        
-    try:
-        if to_do == 1:
-            check_prime()
-        elif to_do == 2:
-           print(prime_lst_input())
-        elif to_do == 3:
-            
-    except ValueError:
-        ini_programme()
-    in_number = int(input("what is your number?"))
-    try:
-        if check_prime(in_number) is True:
-            print(str(in_number) + " is a prime number.")
-        else:
-            print(str(in_number) + " is not a prime number.")
-    except ValueError:
-        ini_programme()
-        
-
 def prime_lst_input():
     """
     prompt user to input lower and upper range
@@ -139,8 +100,3 @@ def prime_factor(num):
                 
     return faclst
 
-"""
-"""
-
-print(prime_factor(1027))
-ini_programme()
