@@ -275,7 +275,7 @@ exit_button = ttk.Button(
     text='Exit',
     command=lambda: root.quit())
 
-exit_button.place(relx=0.8, rely=0.7)
+exit_button.grid(column=3,row=3)
 
 
 root.mainloop()
