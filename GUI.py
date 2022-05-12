@@ -2,6 +2,221 @@ from main import *
 from tkinter import *
 from tkinter import ttk
 
+def confirm():
+    #replace prev prog. with new one
+    c1 = clicked.get()
+    if c1 == programs[0]:
+        check_prime_GUI()
+    elif c1 == programs[1]:
+        find_prime_GUI()
+    elif c1 == programs[2]:
+        find_twin_prime_GUI()
+    elif c1 == programs[3]:
+        find_prime_factor_GUI()
+
+    
+    
+    """for i in range(len(programs)):
+        if clicked.get() is programs[i]:
+            pass
+    """
+
+def check_prime_GUI():
+    # put widgets and algo in the mid frame
+    fmid['text'] = 'Prime number check'
+    for widgets in fmid.winfo_children():
+        widgets.destroy()
+        
+    out_lbl = Label(fmid)
+    out_lbl['text']=''
+    # num lbl
+    lbl = Label(fmid, text='Number: ')
+    lbl.grid(column=0, row=0)
+
+    # Entry widget
+    inputbox=Entry(fmid)
+    inputbox.grid(column=1, row=0, padx=2, pady=2)
+    inputbox.focus()
+
+    # check button
+    chk_btn = ttk.Button(
+        fmid,
+        text='Check',
+        command=lambda: check_prime_out(inputbox.get(), out_lbl))
+    chk_btn.grid(column=2, row=0)
+
+    #clear button
+    clr_btn = ttk.Button(
+        fmid,
+        text='Clear',
+        command=check_prime_GUI)
+    clr_btn.grid(column=2,row=1)
+    out_lbl.grid(column=0, row=1, columnspan=2, sticky='W')
+
+def check_prime_out(num, lbl):
+    if check_prime(int(num)) is True:
+        lbl['text'] = f'{num} is a prime number'
+    else:
+        lbl['text'] = f'{num} is not a prime number'
+
+def find_prime_GUI():
+    #GUI for find prime
+    fmid['text'] = 'Find prime numbers'
+    for widgets in fmid.winfo_children():
+        widgets.destroy()
+
+    # col 0 labels 
+    lower_lbl = Label(fmid, text='Lower range: ')
+    lower_lbl.grid(column=0, row=0)
+
+    higher_lbl = Label(fmid, text='Higher range: ')
+    higher_lbl.grid(column=0, row=1)
+
+    # col 1 entries
+    lower_e = Entry(fmid)
+    lower_e.grid(column=1, row=0)
+
+    higher_e = Entry(fmid)
+    higher_e.grid(column=1, row=1)
+
+     #output
+    out_lbl = Label(fmid, text= 'Prime Numbers: ')
+    out_lbl.grid( column=0, row=2)
+
+    out_e = Text(fmid,height=8, width=55)
+    out_e.grid(column=0, row=3, columnspan=3)
+
+    # col 2 btns
+    # check button
+    find_btn = ttk.Button(
+        fmid,
+        text='Find',
+        command=lambda: find_prime_out(lower_e.get(), higher_e.get(),out_e))
+    find_btn.grid(column=2, row=0)
+
+    #clear button
+    clr_btn = ttk.Button(
+        fmid,
+        text='Clear',
+        command=find_prime_GUI)
+    clr_btn.grid(column=2,row=1)
+    
+   
+def find_prime_out(lwr, hgr, output):
+    out = find_prime(int(lwr), int(hgr))
+    for number in out:
+        if number is out[-1]:
+            output.insert('1.end', str(number))
+        else:
+            output.insert('1.end', str(number) + ', ')
+    output['state'] = 'disable' 
+
+def find_twin_prime_GUI():
+    #GUI for find prime
+    fmid['text'] = 'Find twin prime numbers'
+    for widgets in fmid.winfo_children():
+        widgets.destroy()
+
+    # col 0 labels 
+    lower_lbl = Label(fmid, text='Lower range: ')
+    lower_lbl.grid(column=0, row=0)
+
+    higher_lbl = Label(fmid, text='Higher range: ')
+    higher_lbl.grid(column=0, row=1)
+
+    # col 1 entries
+    lower_e = Entry(fmid)
+    lower_e.grid(column=1, row=0)
+
+    higher_e = Entry(fmid)
+    higher_e.grid(column=1, row=1)
+
+     #output
+    out_lbl = Label(fmid, text= 'Prime Numbers: ')
+    out_lbl.grid( column=0, row=2)
+
+    out_e = Text(fmid,height=8, width=55)
+    out_e.grid(column=0, row=3, columnspan=3)
+    out_e['state'] = 'disable'
+
+    # col 2 btns
+    # check button
+    find_btn = ttk.Button(
+        fmid,
+        text='Find',
+        command=lambda: find_twin_prime_out(lower_e.get(), higher_e.get(),out_e))
+    find_btn.grid(column=2, row=0)
+
+    #clear button
+    clr_btn = ttk.Button(
+        fmid,
+        text='Clear',
+        command=find_twin_prime_GUI)
+    clr_btn.grid(column=2,row=1)
+
+def find_twin_prime_out(lwr, hgr, output):
+    output['state'] = 'normal'
+    output.delete('1.0', END)
+    out = find_prime(int(lwr), int(hgr))
+    for number in out:
+        if number is out[-1]:
+            output.insert('1.end', str(number))
+        else:
+            output.insert('1.end', str(number) + ', ')
+    output['state'] = 'disable' 
+
+def find_prime_factor_GUI():
+    # put widgets and algo in the mid frame
+    fmid['text'] = 'Find prime factor'
+    for widgets in fmid.winfo_children():
+        widgets.destroy()
+        
+    # num lbl
+    lbl = Label(fmid, text='Number: ')
+    lbl.grid(column=0, row=0)
+
+    # Entry widget
+    inputbox=Entry(fmid)
+    inputbox.grid(column=1, row=0, padx=2, pady=2)
+    inputbox.focus()
+
+    # check button
+    chk_btn = ttk.Button(
+        fmid,
+        text='Check',
+        command=lambda: find_prime_factor_out(inputbox.get(), out_e))
+    chk_btn.grid(column=2, row=0)
+
+    #clear button
+    clr_btn = ttk.Button(
+        fmid,
+        text='Clear',
+        command=find_prime_factor_GUI)
+    clr_btn.grid(column=2,row=1)
+
+      #output
+    out_lbl = Label(fmid, text= 'Prime Numbers: ')
+    out_lbl.grid( column=0, row=2)
+
+    out_e = Text(fmid,height=8, width=55)
+    out_e.grid(column=0, row=3, columnspan=3)
+    out_e['state'] = 'disable'
+
+def find_prime_factor_out(num,output):
+    output['state'] = 'normal'
+    output.delete('1.0', END)
+    out = prime_factor(int(num))
+    if len(out) == 0:
+        output.insert('1.end', 'This Number Does not have 2 prime factors.')
+        return
+    for number in out:
+        if number is out[-1]:
+            output.insert('1.end', str(number))
+        else:
+            output.insert('1.end', str(number) + ', ')
+    output['state'] = 'disable' 
+    
+
 
 
 root = Tk()
@@ -12,7 +227,7 @@ root.attributes('-topmost', 1)
 root.iconbitmap('icon.ico')
 
 ftop = ttk.Frame(root)
-fmid = ttk.Frame(root)
+fmid = ttk.LabelFrame(root)
 fbot = ttk.Frame(root)
 
 ftop.grid(column=0,row =0, sticky="nsew")
@@ -25,45 +240,8 @@ root.rowconfigure(2, weight=2)
 root.columnconfigure(0,weight=1)
 
 fmid['borderwidth'] = 2
-fmid['relief'] = 'sunken'
-
-
-
-def confirm():
-    #replace prev prog. with new one
-    for widgets in fmid.winfo_children():
-        widgets.destroy()
-
-    test_lbl = ttk.Label(fmid)
-    test_lbl.grid(column=0, row=0)
-    #test_lbl['text'] = f'You selected: {clicked.get()}'
-    check_prime_GUI()
-
-def check_prime_GUI():
-    #put widgets and algo in the mid frame
-    out_lbl = Label(fmid)
-
-    lbl = Label(fmid, text='Number: ')
-    lbl.grid(column=0, row=0)
-
-    inputbox=Entry(fmid,textvariable= 0)
-    inputbox.grid(column=1, row=0)
-
-    global checking_num
-    checking_num = int(inputbox.get())
-
-    chk_btn = ttk.Button(
-        fmid,
-        text='Check',
-        command=check_prime_out(out_lbl))
-    chk_btn.grid(column=2, row=0)
-    out_lbl.grid()
-
-def check_prime_out(lbl):
-    if check_prime(int(checking_num)) is True:
-        lbl['text'] = f'{checking_num} is a prime number'
-    else:
-        lbl['text'] = f'{checking_num} is not a prime number'
+#fmid['relief'] = 'sunken'
+    
 
 
     
