@@ -163,6 +163,7 @@ def find_twin_prime_out(lwr, hgr, output):
             output.insert('1.end', str(number))
         else:
             output.insert('1.end', str(number) + ', ')
+
     output['state'] = 'disable' 
 
 def find_prime_factor_GUI():
@@ -218,7 +219,7 @@ def find_prime_factor_out(num,output):
     
 
 
-
+# window
 root = Tk()
 root.geometry('450x300')
 root.resizable(True, True)
@@ -226,6 +227,7 @@ root.title('Prime Number App')
 root.attributes('-topmost', 1)
 root.iconbitmap('icon.ico')
 
+#  the frames
 ftop = ttk.Frame(root)
 fmid = ttk.LabelFrame(root)
 fbot = ttk.Frame(root)
@@ -250,7 +252,7 @@ fmid['borderwidth'] = 2
 label = Label(ftop, text='Which function to use')
 label.grid(column=0, row=0, sticky='W', columnspan= 2)
 
-# program selection
+# program selection (Drop down box)
 programs = [
     "Check prime",
     "Find prime in a range",
@@ -269,12 +271,13 @@ confirm_button = ttk.Button(
     command=confirm)
 confirm_button.grid(column=1, row=1)
     
-#exit button
+# exit button
 exit_button = ttk.Button(
     fbot,
     text='Exit',
     command=lambda: root.quit())
-
+ph1 = Label(fbot).grid(column=0, row=0)
+ph2 = Label(fbot).grid(column=0, row=1)
 exit_button.grid(column=3,row=3)
 
 

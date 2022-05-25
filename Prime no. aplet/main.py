@@ -42,8 +42,7 @@ def find_prime(lower, higher):
     find all the prime no. in the range and organize them in a list
     """    
     
-    num_list = list(range(higher + 1))
-    del num_list[:lower]
+    num_list = list(range(lower, higher + 1))
     prime_list = []
     
     for i in range(len(num_list)):
@@ -79,16 +78,17 @@ def twin_primes(lst):
         if lst[i+1] - lst[i] == 2:
             twin_prime_lst.append(lst[i])
             twin_prime_lst.append(lst[i+1])
+            i += 2
             
             print_list(twin_prime_lst)
     
 def prime_factor(num): 
     """
     find 2 prime factors of a number
+    O(n^2)
     """       
     teli = find_prime(0,num)
     faclst =[]
-    
     for i in range(len(teli)-1):
         j = i
         while j < len(teli)-1 and len(faclst) == 0:
@@ -100,3 +100,22 @@ def prime_factor(num):
                 
     return faclst
 
+
+def recu(lst, num):
+    i = 1
+    while lst[0] * lst[i] < num:
+        i+=1
+    if len(lst) == 3:
+        del lst[-1]
+        return
+    i-=2
+    del lst[i+2:]
+    del lst[0]
+    recu(lst,num)
+
+
+
+
+
+
+    
