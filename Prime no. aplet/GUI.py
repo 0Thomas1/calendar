@@ -222,7 +222,7 @@ def find_prime_factor_out(num,output):
 # window
 root = Tk()
 root.geometry('450x300')
-root.resizable(True, True)
+root.resizable(False, False)
 root.title('Prime Number App')
 root.attributes('-topmost', 1)
 root.iconbitmap('icon.ico')
