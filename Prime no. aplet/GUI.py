@@ -15,11 +15,6 @@ def confirm():
         find_prime_factor_GUI()
 
     
-    
-    """for i in range(len(programs)):
-        if clicked.get() is programs[i]:
-            pass
-    """
 
 def check_prime_GUI():
     # put widgets and algo in the mid frame

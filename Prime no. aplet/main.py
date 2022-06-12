@@ -53,12 +53,6 @@ def find_prime(lower, higher):
     
         
 
-def print_list(list):
-    """
-    print things
-    """    
-    print(list)
-
 def prime_lst_input():
     """
     prompt user to input lower and upper range
